@@ -39,17 +39,17 @@ const Header = ({ url, setUrl, setMode, currentPage }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (query !== '') {
-      setUrl(`https://api.themoviedb.org/3/search/movie?api_key=083b9cd3ac7a079d5f0dd191afa9cc9e&language=zh-TW&query=${query}&page=1`)
+      setUrl(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=zh-TW&query=${query}&page=1`)
       setMode('SEARCH')
     } else {
-      setUrl(`https://api.themoviedb.org/3/discover/movie?api_key=083b9cd3ac7a079d5f0dd191afa9cc9e&language=zh-TW&page=1`)
+      setUrl(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=zh-TW&page=1`)
       setMode('HOT')
     }
   }
 
   useEffect(() => {
     if (query !== '') {
-      setUrl(`https://api.themoviedb.org/3/search/movie?api_key=083b9cd3ac7a079d5f0dd191afa9cc9e&language=zh-TW&query=${query}&page=${currentPage}`)
+      setUrl(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=zh-TW&query=${query}&page=${currentPage}`)
     }
   }, [currentPage])
 
