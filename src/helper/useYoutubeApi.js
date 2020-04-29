@@ -7,6 +7,7 @@ function useYoutubeApi(searchTerm) {
   useEffect(() => {
     if (searchTerm === '') return
     else {
+      console.log(process.env.YOUTUBE_KEY)
       const fetchingData = async () => {
         await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
