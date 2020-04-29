@@ -22,7 +22,6 @@ const videoPlaylistStyle = {
   display: 'flex',
   flexDirection: 'column',
   marginTop: '35px',
-
 }
 
 const videoCardStyle = {

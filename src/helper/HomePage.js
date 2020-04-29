@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header'
 import Body from '../components/Body'
 import Paginations from '../components/Pagination'
@@ -13,15 +13,11 @@ const HomePage = () => {
 
   const { movies, totalResults, totalPages, currentPage, setCurrentPage } = useMovieApi(url)
 
-  // useEffect(() => {
-  // }, [movies])
-
   return (
     <>
       <Header url={url} setUrl={setUrl} mode={mode} setMode={setMode} currentPage={currentPage} />
       <Body movies={movies} mode={mode} totalResults={totalResults} totalPages={totalPages} currentPage={currentPage} toggle={toggle} modal={modal} />
       {mode === 'SEARCH' && <Paginations totalPages={totalPages} setUrl={setUrl} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
-
     </>
   )
 }

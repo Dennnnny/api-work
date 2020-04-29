@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import React, { useState } from 'react'
+import { Modal, ModalHeader, ModalBody } from 'reactstrap'
 import useMovieApi from '../helper/useMovieApi'
 import useYoutubeApi from '../helper/useYoutubeApi'
 import ModalContent from './ModalContent'
@@ -57,18 +57,9 @@ const titleStyle = {
 
 const MovieModal = ({ toggle, modal, currentMovie }) => {
 
-  // if (currentMovie === '') return <></>
-
   const { movies } = useMovieApi(`${currentMovie === null ? '' : `https://api.themoviedb.org/3/movie/${currentMovie}?api_key=083b9cd3ac7a079d5f0dd191afa9cc9e&language=zh-TW`}`) //en-US ; zh-TW
 
   const { trailers, selectedTrailer, setSelectedTrailer } = useYoutubeApi(`${movies === null ? '' : `${movies.title} movie trailer`}`)
-
-  useEffect(() => {
-    console.log('modal:', movies)
-    console.log('modalTrailer:', trailers)
-
-  }, [modal])
-
 
   const [nestedModal, setNestedModal] = useState(false)
   const [closeAll, setCloseAll] = useState(false)

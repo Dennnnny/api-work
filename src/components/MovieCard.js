@@ -6,7 +6,6 @@ const cardStyle = {
   flexDirection: 'column',
   margin: '10px 0 10px 15px',
   width: '250px',
-
 }
 
 const titleStyle = {

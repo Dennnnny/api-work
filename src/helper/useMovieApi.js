@@ -6,17 +6,12 @@ function useMovieApi(url) {
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
   const [totalResults, setTotalResults] = useState(0)
-
-  // const [mode, setMode] = useState('HOT')
-  // console.log('yyoyo', movies)
   useEffect(() => {
     if (url === '') return
     else {
-
       const fetchingData = async () => {
         await axios.get(url)
           .then(res => {
-            // console.log('modal', res.data)
             setMovies(res.data.results || res.data)
             setTotalPages(res.data.total_pages)
             setTotalResults(res.data.total_results)
@@ -25,9 +20,7 @@ function useMovieApi(url) {
       fetchingData()
     }
   }, [url, currentPage])
-
   return { movies, totalPages, totalResults, currentPage, setCurrentPage }
-
 }
 
 export default useMovieApi
