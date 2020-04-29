@@ -4,19 +4,17 @@ import axios from 'axios'
 function useYoutubeApi(searchTerm) {
   const [trailers, setTrailers] = useState([])
   const [selectedTrailer, setSelectedTrailer] = useState(null)
-  console.log(process.env.YOUTUBE_KEY)
 
   useEffect(() => {
     if (searchTerm === '') return
 
     else {
-      console.log(process.env.YOUTUBE_KEY)
       const fetchingData = async () => {
         await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
             part: 'snippet',
             maxResults: 5,
-            key: process.env.YOUTUBE_KEY,
+            key: process.env.REACT_YOUTUBE_KEY,
             q: searchTerm
           }
         })
