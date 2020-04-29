@@ -4,8 +4,11 @@ import axios from 'axios'
 function useYoutubeApi(searchTerm) {
   const [trailers, setTrailers] = useState([])
   const [selectedTrailer, setSelectedTrailer] = useState(null)
+  console.log(process.env.YOUTUBE_KEY)
+
   useEffect(() => {
     if (searchTerm === '') return
+
     else {
       console.log(process.env.YOUTUBE_KEY)
       const fetchingData = async () => {
