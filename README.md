@@ -10,6 +10,6 @@
 - reactstrap
 - axios
 
-作品最後會推到[Netify](https://app.netlify.com/)上
+作品最後會推到[Netlify](https://app.netlify.com/)上
 
 ------

@@ -20,6 +20,7 @@ function useYoutubeApi(searchTerm) {
             setTrailers(res.data.items)
             setSelectedTrailer(res.data.items[0])
           })
+          .catch(err => console.log(err))
       }
       fetchingData()
     }
