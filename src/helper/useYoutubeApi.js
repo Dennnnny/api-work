@@ -4,7 +4,7 @@ import axios from 'axios'
 function useYoutubeApi(searchTerm) {
   const [trailers, setTrailers] = useState([])
   const [selectedTrailer, setSelectedTrailer] = useState(null)
-
+  console.log(process.env.REACT_APP_YOUTUBE_KEY)
   useEffect(() => {
     if (searchTerm === '') return
 
@@ -14,7 +14,7 @@ function useYoutubeApi(searchTerm) {
           params: {
             part: 'snippet',
             maxResults: 5,
-            key: process.env.REACT_YOUTUBE_KEY,
+            key: process.env.REACT_APP_YOUTUBE_KEY,
             q: searchTerm
           }
         })
