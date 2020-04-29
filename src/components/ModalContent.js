@@ -47,7 +47,7 @@ const ModalContent = ({ movies, toggleNested }) => {
         <p>片長 ： {movies.runtime} 分鐘</p>
         <p>上映日期： {movies.release_date}</p>
         <p>電影類型 ： {movies.genres !== undefined && movies.genres.map(gen => <span key={gen.id} className="mr-2 badge badge-pill badge-warning">{gen.name}</span>)}</p>
-        <button className="danger" onClick={toggleNested}>Youtube 找電影預告片</button>
+        <button className="btn btn-danger" onClick={toggleNested}>Youtube 找電影預告片</button>
       </div>
     </>
   )

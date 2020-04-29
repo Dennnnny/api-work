@@ -5,7 +5,6 @@ function useYoutubeApi(searchTerm) {
   const [trailers, setTrailers] = useState([])
   const [selectedTrailer, setSelectedTrailer] = useState(null)
   useEffect(() => {
-    console.log('serTerm::', searchTerm, searchTerm.length)
     if (searchTerm === '') return
     else {
       const fetchingData = async () => {
