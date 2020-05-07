@@ -18,12 +18,16 @@ const Form = styled.form`
 
 
 const Title = styled.h1`
-  text-decoration: none;
-  color: #0d253f;
+ 
   width: 200px;
   text-shadow: 5px 5px 2px #01b4e4;
   font-family: Noto Sans TC;
   font-size: 100px;
+
+  a{
+    color: #0d253f;
+    text-decoration: none;
+  }
   
   @media (max-width:2000px ) {
     font-size: 80px;
