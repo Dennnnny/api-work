@@ -65,7 +65,7 @@ const Header = ({ url, setUrl, setMode, currentPage }) => {
   return (
     <div>
       <JumboHeader>
-        <a href="/"><Title>搜搜</Title></a>
+        <Title><a href="/">搜搜</a></Title>
         <p className="lead">可以...找找電影</p>
         <Form onSubmit={(e) => {
           e.preventDefault()
