@@ -7,7 +7,7 @@ const VideoDetail = styled.div`
 `
 
 const Video = styled.iframe`
-  width: 100%ㄤ
+  width: 100%;
   height: 350px
 `
 
@@ -55,6 +55,11 @@ const VideoCard = styled.button`
   display: flex;
   flex-direction: column;
   align-items: flex-start
+
+`
+
+const VideoImg = styled.img`
+  width:100%;
 `
 
 const ModalTrailer = ({ trailers, selectedTrailer, setSelectedTrailer }) => {
@@ -75,7 +80,7 @@ const ModalTrailer = ({ trailers, selectedTrailer, setSelectedTrailer }) => {
       </VideoDetail>
       <VideoPlaylist>
         {trailers.map(trailer => <VideoCard key={trailer.etag} onClick={() => setSelectedTrailer(trailer)}>
-          <img width={trailer.snippet.thumbnails.medium.width} height={trailer.snippet.thumbnails.medium.height} src={trailer.snippet.thumbnails.medium.url} />
+          <VideoImg src={trailer.snippet.thumbnails.medium.url} />
           <p className="text-left">{trailer.snippet.title}</p></VideoCard>)}
       </VideoPlaylist>
     </>
