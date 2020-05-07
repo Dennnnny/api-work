@@ -1,37 +1,46 @@
 import React, { useState, useEffect } from 'react'
-import { Jumbotron, Input } from 'reactstrap';
+import { Jumbotron, Input } from 'reactstrap'
+import styled from 'styled-components'
 
-const jumboStyle = {
-  backgroundImage: 'linear-gradient(90deg,#90cea1,#01b4e4)',
-  display: 'flex',
-  flexDirection: 'column',
-}
+const JumboHeader = styled(Jumbotron)`
+  background-image: linear-gradient(90deg,#90cea1,#01b4e4);
+  display: flex;
+  flex-direction: column;
+`
 
-const inputStyle = {
-  display: 'flex',
-  width: '50%',
-  margin: '0 auto',
-  position: 'relative'
-}
 
-const titleStyle = {
-  textDecoration: 'none',
-  color: '#0d253f',
-  width: '150px',
-  textShadow: '5px 5px 2px #01b4e4'
-}
+const Form = styled.form`
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  position: relative
+`
 
-const searchBarStyle = {
-  width: '70px',
-  height: '100%',
-  color: '#0d253f',
-  backgroundColor: 'transparent',
-  border: 'none',
-  position: 'absolute',
-  right: 0,
-  lineHeight: '200%',
-  borderLeft: '3px solid #01b4e4'
-}
+
+const Title = styled.h1`
+  text-decoration: none;
+  color: #0d253f;
+  width: 200px;
+  text-shadow: 5px 5px 2px #01b4e4;
+  font-family: Noto Sans TC;
+  font-size: 100px;
+  
+  @media (max-width:2000px ) {
+    font-size: 80px;
+  }
+`
+
+const SearchButton = styled.button`
+  width: 70px;
+  height: 100%;
+  color: #0d253f;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 0;
+  line-height: 200%;
+  border-left: 3px solid #01b4e4
+`
 
 const Header = ({ url, setUrl, setMode, currentPage }) => {
 
@@ -55,20 +64,18 @@ const Header = ({ url, setUrl, setMode, currentPage }) => {
 
   return (
     <div>
-      <Jumbotron style={jumboStyle}>
-        <a href="/" style={titleStyle}>
-          <h1 className="display-3">搜搜</h1>
-        </a>
+      <JumboHeader>
+        <a href="/"><Title>搜搜</Title></a>
         <p className="lead">可以...找找電影</p>
-        <form style={inputStyle} onSubmit={(e) => {
+        <Form onSubmit={(e) => {
           e.preventDefault()
           handleSubmit(e)
         }}>
           <Input id="searchBar" placeholder="今天要看什麼電影...？" onChange={(e) => setQuery(e.target.value)} />
-          <button type="submit" style={searchBarStyle}>搜尋</button>
-        </form>
+          <SearchButton type="submit">搜尋</SearchButton>
+        </Form>
 
-      </Jumbotron>
+      </JumboHeader>
     </div>
   )
 }

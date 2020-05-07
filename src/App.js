@@ -2,24 +2,29 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import HomePage from './helper/HomePage'
 import Footer from './components/Footer'
+import styled from 'styled-components'
 
-const AppStyle = {
-  fontFamily: 'Microsoft JhengHei',
-  position: 'relative',
-  minWidth: '900px'
-}
+// const AppStyle = {
+//   fontFamily: 'Microsoft JhengHei',
+//   position: 'relative',
+//   minWidth: '900px'
+// }
+
+const AppDiv = styled.div`
+  font-family: Microsoft JhengHei;
+  position: relative;
+  minWidth: 900px
+`
 
 
 
 const App = () => {
 
   return (
-    <div style={AppStyle}>
-
+    <AppDiv>
       <HomePage />
-
       <Footer />
-    </div>
+    </AppDiv>
   )
 }
 

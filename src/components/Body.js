@@ -2,40 +2,45 @@ import React, { useState } from 'react'
 import MovieCard from './MovieCard'
 import { Spinner } from 'reactstrap'
 import MovieModal from './MovieModal'
+import styled from 'styled-components'
 
-const bodyStyle = {
-  position: 'relative',
-  width: '100%',
-  display: 'flex',
-  justifyContent: 'flex-start',
-  flexWrap: 'wrap',
-}
+const BodyContent = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap
+`
 
-const titleStyle = {
-  width: '20%',
-  margin: '30px auto',
-  textAlign: 'center',
-  borderBottom: '3px solid #01b4e4'
-}
+const Title = styled.h1`
+  width: 20%;
+  margin: 30px auto;
+  text-align: center;
+  border-bottom: 3px solid #01b4e4;
 
-const searchStyle = {
-  position: 'relative'
-}
+  @media (max-width: 770px) {
+    width: 35%;
+  }
+`
 
-const searchTextStyle = {
-  position: 'absolute',
-  display: 'inline-block',
-  top: '20px',
-  margin: 'auto ',
-  right: '10%',
-}
+const SearchArea = styled.div`
+  position: relative;
+`
 
-const spinnerStyle = {
-  color: '#90cea1',
-  margin: '100px auto',
-  width: '10rem',
-  height: '10rem'
-}
+const SearchText = styled.div`
+  position: absolute;
+  display: inline-block;
+  top: 20px;
+  margin: auto ;
+  right: 10%;
+`
+
+const Loading = styled(Spinner)`
+  color: #90cea1;
+  margin: 100px auto;
+  width: 10rem;
+  height: 10rem
+`
 
 const Body = ({ movies, mode, totalResults, totalPages, currentPage, toggle, modal }) => {
 
@@ -44,22 +49,20 @@ const Body = ({ movies, mode, totalResults, totalPages, currentPage, toggle, mod
   return (
     <>
       {mode === "HOT" ?
-        <div >
-          <h1 style={titleStyle}>熱門電影</h1>
-        </div>
+        <Title>熱門電影</Title>
         :
         movies === null ? '...'
           :
-          <div style={searchStyle}>
-            <h1 style={titleStyle}>搜尋結果</h1>
-            <div style={searchTextStyle}>
+          <SearchArea>
+            <Title>搜尋結果</Title>
+            <SearchText>
               <p >總筆數：{totalResults} 筆  |  第{currentPage} 頁 / {totalPages} 頁</p>
-            </div>
-          </div>
+            </SearchText>
+          </SearchArea>
       }
-      <div style={bodyStyle}>
-        {movies !== null ? movies.map(movie => { return <MovieCard toggle={toggle} key={movie.id} poster={movie.poster_path} title={movie.title} setCurrentMovie={setCurrentMovie} id={movie.id} /> }) : <Spinner style={spinnerStyle} />}
-      </div>
+      <BodyContent>
+        {movies !== null ? movies.map(movie => { return <MovieCard toggle={toggle} key={movie.id} poster={movie.poster_path} title={movie.title} setCurrentMovie={setCurrentMovie} id={movie.id} /> }) : <Loading />}
+      </BodyContent>
       <MovieModal toggle={toggle} modal={modal} currentMovie={currentMovie} />
     </>
   )

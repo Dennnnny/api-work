@@ -1,20 +1,58 @@
 import React from 'react'
 import imgSrc from '../images/image-not-found.png'
+import styled from 'styled-components'
+
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin: 10px 1%;
+  width: 18%;
+
+  @media (max-width: 2000px) {
+    margin: 10px 1%;
+    width: 23%;
+    min-width: 220px;
+  }
+
+  @media (max-width :768px) {
+    margin: 10px 5%;
+    width: 40%;
+  }
+
+  @media (max-width: 600px) {
+    margin: 10px 25%;
+    width:50%
+  }
+
+`
 
 const cardStyle = {
   display: 'flex',
   flexDirection: 'column',
-  margin: '10px 0 10px 15px',
-  width: '250px',
+  margin: '10px 1% 10px 1%',
+  width: '23%',
+  height: '200%'
 }
 
-const titleStyle = {
-  fontWeight: '900'
-}
+const CardPoster = styled.img`
+  height: 500px;
 
-const imgStyle = {
-  height: '330px'
-}
+  @media (max-width:2000px) {
+    height: 450px;
+  }
+
+  @media (max-width:1500px) {
+    height: 370px;
+  }
+
+  @media (max-width:1000px) {
+    height: 300px;
+  }
+
+`
+
+
 
 const MovieCard = ({ id, poster, title, toggle, setCurrentMovie }) => {
 
@@ -24,10 +62,10 @@ const MovieCard = ({ id, poster, title, toggle, setCurrentMovie }) => {
   }
 
   return (
-    <div style={cardStyle} className="btn" onClick={handleClick}>
-      <img src={poster ? `https://image.tmdb.org/t/p/w220_and_h330_face/${poster}` : imgSrc} style={imgStyle} alt="movie poster" />
-      <h5 style={titleStyle}>{title}</h5>
-    </div>
+    <Card className="btn" onClick={handleClick}>
+      <CardPoster src={poster ? `https://image.tmdb.org/t/p/w220_and_h330_face/${poster}` : imgSrc} alt="movie poster" />
+      <h5>{title}</h5>
+    </Card>
   )
 }
 

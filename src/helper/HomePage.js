@@ -6,6 +6,7 @@ import useMovieApi from './useMovieApi'
 
 
 const HomePage = () => {
+
   const [mode, setMode] = useState('HOT')
   const [url, setUrl] = useState(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=zh-TW&page=1`) //en-US ; zh-TW
   const [modal, setModal] = useState(false)

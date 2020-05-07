@@ -1,14 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const videoDetailStyle = {
-  margin: '35px 15px',
-  width: '65%'
-}
+const VideoDetail = styled.div`
+  margin: 50px 15px;
+  width: 65%
+`
 
-const videoStyle = {
-  width: '100%',
-  height: '350px'
-}
+const Video = styled.iframe`
+  width: 100%ㄤ
+  height: 350px
+`
 
 const videoContentStyle = {
   width: '100%',
@@ -21,8 +22,18 @@ const videoPlaylistStyle = {
   overflowX: 'none',
   display: 'flex',
   flexDirection: 'column',
-  marginTop: '35px',
+  marginTop: '50px',
 }
+
+const VideoPlaylist = styled.div`
+  width: 35%;
+  height: 550px;
+  overflow-y: auto;
+  overflow-x: none;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+`
 
 const videoCardStyle = {
   border: 'none',
@@ -35,27 +46,38 @@ const videoCardStyle = {
   alignItems: 'flex-start'
 }
 
+const VideoCard = styled.button`
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: 1px solid #f9f9f9;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+`
+
 const ModalTrailer = ({ trailers, selectedTrailer, setSelectedTrailer }) => {
 
   return (
     <>
-      <div style={videoDetailStyle}>
+      <VideoDetail>
         {selectedTrailer !== null &&
           <div >
-            <iframe style={videoStyle} src={`https://www.youtube.com/embed/${selectedTrailer.id.videoId}`} />
-            <div style={videoContentStyle}>
+            <Video src={`https://www.youtube.com/embed/${selectedTrailer.id.videoId}`} />
+            <div>
               <h4>{selectedTrailer.snippet.title}</h4>
               <p>頻道 : {selectedTrailer.snippet.channelTitle}</p>
               <p>發布日期: {selectedTrailer.snippet.publishedAt.slice(0, 10)}</p>
             </div>
           </div>
         }
-      </div>
-      <div style={videoPlaylistStyle}>
-        {trailers.map(trailer => <button style={videoCardStyle} key={trailer.etag} onClick={() => setSelectedTrailer(trailer)}>
+      </VideoDetail>
+      <VideoPlaylist>
+        {trailers.map(trailer => <VideoCard key={trailer.etag} onClick={() => setSelectedTrailer(trailer)}>
           <img width={trailer.snippet.thumbnails.medium.width} height={trailer.snippet.thumbnails.medium.height} src={trailer.snippet.thumbnails.medium.url} />
-          <p className="text-left">{trailer.snippet.title}</p></button>)}
-      </div>
+          <p className="text-left">{trailer.snippet.title}</p></VideoCard>)}
+      </VideoPlaylist>
     </>
   )
 }

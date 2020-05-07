@@ -1,12 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const pageStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  marginTop: '20px',
-  listStyle: 'none',
-  borderRadius: '0.25rem'
-}
+const Page = styled.ul`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  list-style: none;
+  border-radius: 0.25rem
+`
+
 
 
 const Paginations = ({ totalPages, currentPage, setCurrentPage }) => {
@@ -46,7 +48,7 @@ const Paginations = ({ totalPages, currentPage, setCurrentPage }) => {
   }
 
   return (
-    <ul style={pageStyle} >
+    <Page >
       <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
         <button className="page-link" onClick={() => changePage(p => p - 1)}>Previous</button>
       </li>
@@ -54,7 +56,7 @@ const Paginations = ({ totalPages, currentPage, setCurrentPage }) => {
       <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
         <button className="page-link" onClick={() => changePage(p => p + 1)}>Next</button>
       </li>
-    </ul>
+    </Page>
   )
 }
 

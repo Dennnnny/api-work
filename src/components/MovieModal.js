@@ -7,7 +7,7 @@ import ModalTrailer from './ModalTrailer'
 
 const modalStyle = {
   position: 'relative',
-  maxWidth: '75%',
+  maxWidth: '50%',
   minWidth: '750px',
   fontFamily: 'Microsoft JhengHei',
 }
@@ -21,6 +21,7 @@ const headerStyle = {
 
 const bodyStyle = {
   display: 'flex',
+  justifyContent: 'center',
   height: '600px',
   padding: 0
 }
