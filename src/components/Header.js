@@ -20,7 +20,6 @@ const Form = styled.form`
 const Title = styled.h1`
  
   width: 200px;
-  text-shadow: 5px 5px 2px #01b4e4;
   font-family: Noto Sans TC;
   font-size: 100px;
 
