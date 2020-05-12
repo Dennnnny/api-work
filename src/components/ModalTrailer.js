@@ -11,20 +11,6 @@ const Video = styled.iframe`
   height: 350px
 `
 
-const videoContentStyle = {
-  width: '100%',
-}
-
-const videoPlaylistStyle = {
-  width: '35%',
-  height: '550px',
-  overflowY: 'auto',
-  overflowX: 'none',
-  display: 'flex',
-  flexDirection: 'column',
-  marginTop: '50px',
-}
-
 const VideoPlaylist = styled.div`
   width: 35%;
   height: 550px;
@@ -35,16 +21,6 @@ const VideoPlaylist = styled.div`
   margin-top: 50px;
 `
 
-const videoCardStyle = {
-  border: 'none',
-  background: 'none',
-  outline: 'none',
-  borderBottom: '1px solid #f9f9f9',
-  marginBottom: '5px',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start'
-}
 
 const VideoCard = styled.button`
   border: none;
@@ -80,7 +56,7 @@ const ModalTrailer = ({ trailers, selectedTrailer, setSelectedTrailer }) => {
       </VideoDetail>
       <VideoPlaylist>
         {trailers.map(trailer => <VideoCard key={trailer.etag} onClick={() => setSelectedTrailer(trailer)}>
-          <VideoImg src={trailer.snippet.thumbnails.medium.url} />
+          <VideoImg src={trailer.snippet.thumbnails.high.url} />
           <p className="text-left">{trailer.snippet.title}</p></VideoCard>)}
       </VideoPlaylist>
     </>

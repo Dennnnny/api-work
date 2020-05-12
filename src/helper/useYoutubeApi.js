@@ -13,7 +13,7 @@ function useYoutubeApi(searchTerm) {
           params: {
             part: 'snippet',
             maxResults: 5,
-            key: process.env.REACT_APP_YOUTUBE_KEY || 'AIzaSyBU9cE_lLvxv0XzzMXtZLEgpZ6Q-MELvGk',
+            key: process.env.REACT_APP_YOUTUBE_KEY,
             q: searchTerm
           }
         })

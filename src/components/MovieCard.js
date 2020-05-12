@@ -27,13 +27,6 @@ const Card = styled.div`
 
 `
 
-const cardStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  margin: '10px 1% 10px 1%',
-  width: '23%',
-  height: '200%'
-}
 
 const CardPoster = styled.img`
   height: 500px;
